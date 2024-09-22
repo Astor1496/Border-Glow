@@ -1,4 +1,18 @@
 
+@keyframes spin{
+  from{
+    --angle: 0deg;
+  }
+  to{
+    --angle: 360deg;
+  }
+}
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
 
 :root{
   --base-color: black;
@@ -28,11 +42,7 @@ body{
   margin-top: 30px;
 }
 
-@property --angle{
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
+
 
 .container-rainbow::after, .container-rainbow::before{
   content: '';
@@ -53,14 +63,7 @@ body{
   filter: blur(1.5rem);
 }
 
-@keyframes spin{
-  from{
-    --angle: 0deg;
-  }
-  to{
-    --angle: 360deg;
-  }
-}
+
 
 .container-blue{
   background: var(--base-color);
@@ -73,12 +76,6 @@ body{
   position: relative;
   color: var(--text-color);
   margin-top: 30px;
-}
-
-@property --angle{
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
 }
 
 .container-blue::after, .container-blue::before{
@@ -100,11 +97,40 @@ body{
   filter: blur(1.5rem);
 }
 
-@keyframes spin{
-  from{
-    --angle: 0deg;
-  }
-  to{
-    --angle: 360deg;
-  }
+.container-25{
+  background: var(--base-color);
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 2em;
+  margin: 0 auto;
+  position: relative;
+  color: var(--text-color);
+  margin-top: 30px;
+  resize: both;
+}
+
+.container-25::after, .container-25::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle),  transparent 25%, red, green);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 3px;
+  border-radius: 10px;
+  animation: 3s spin linear infinite;
+}
+
+.container-25::before{
+  filter: blur(1.5rem);
+}
+
+p.container-25{
+  font-size: 25px;
+  text-align: center;
 }
