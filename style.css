@@ -1,0 +1,110 @@
+
+
+:root{
+  --base-color: black;
+  --text-color: white;
+  --bg-color: black;
+  --primary-color: grey;
+
+}
+
+body{
+  background-color: var(--bg-color);
+}
+*{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container-rainbow{
+  background: var(--base-color);
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 2em;
+  margin: 0 auto;
+  position: relative;
+  color: var(--text-color);
+  margin-top: 30px;
+}
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.container-rainbow::after, .container-rainbow::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle), red, orange, green, blue, purple, red);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 3px;
+  border-radius: 10px;
+  animation: 3s spin linear infinite;
+}
+
+.container-rainbow::before{
+  filter: blur(1.5rem);
+}
+
+@keyframes spin{
+  from{
+    --angle: 0deg;
+  }
+  to{
+    --angle: 360deg;
+  }
+}
+
+.container-blue{
+  background: var(--base-color);
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 2em;
+  margin: 0 auto;
+  position: relative;
+  color: var(--text-color);
+  margin-top: 30px;
+}
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.container-blue::after, .container-blue::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle),  transparent 70%, blue);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 3px;
+  border-radius: 10px;
+  animation: 3s spin linear infinite;
+}
+
+.container-blue::before{
+  filter: blur(1.5rem);
+}
+
+@keyframes spin{
+  from{
+    --angle: 0deg;
+  }
+  to{
+    --angle: 360deg;
+  }
+}
